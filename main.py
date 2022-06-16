@@ -27,7 +27,9 @@ def main():
     Regressao Linear ML App </h2>
     </div>
     """
-
+    
+    st.markdown(html_temp, unsafe_allow_html=True)
+    TamCabeca = st.text_input("Qual o volume da cabeça (cm³)?")
 
 if __name__ == '__main__':
     main()

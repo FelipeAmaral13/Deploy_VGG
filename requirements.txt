@@ -1,3 +1,6 @@
+h5py
+typing-extensions
+wheel
 Keras==2.8.0rc0
 tensorflow==2.8.0rc0
 tqdm==4.64.0

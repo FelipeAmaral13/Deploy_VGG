@@ -1,3 +1,4 @@
+import streamlit as st
 import os
 import numpy as np
 import cv2
@@ -10,7 +11,6 @@ from sklearn.preprocessing import LabelEncoder, LabelBinarizer
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import classification_report,confusion_matrix
 
-import streamlit as st
 import tensorflow
 import keras
 from keras.callbacks import ReduceLROnPlateau, ModelCheckpoint, EarlyStopping, TensorBoard
@@ -22,8 +22,15 @@ from keras.preprocessing.image import ImageDataGenerator
 st.set_option('deprecation.showPyplotGlobalUse', False)
 
 def main():
- 
-    TamCabeca = st.text_input("test")
+    html_temp = """
+    <div style="background-color:#025246 ;padding:10px">
+    <h2 style="color:white;text-align:center;">
+    Regressao Linear ML App </h2>
+    </div>
+    """
+
+    st.markdown(html_temp, unsafe_allow_html=True)
+    TamCabeca = st.text_input("Qual o volume da cabeça (cm³)?")
 
 if __name__ == '__main__':
     main()

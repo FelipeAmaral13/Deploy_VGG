@@ -1,5 +1,5 @@
 Keras==2.4.3
-tensorflow==2.3.1t
+tensorflow==2.8.0rc0
 qdm==4.64.0
 matplotlib==3.3.4
 scikit_learn== 1.1.1 

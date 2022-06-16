@@ -19,17 +19,11 @@ from keras.models import Sequential, Model
 from keras.layers import Dense, Conv2D , MaxPool2D , Flatten , Dropout , MaxPooling2D
 from keras.preprocessing.image import ImageDataGenerator
 
+st.set_option('deprecation.showPyplotGlobalUse', False)
 
 def main():
-    html_temp = """
-    <div style="background-color:#025246 ;padding:10px">
-    <h2 style="color:white;text-align:center;">
-    Regressao Linear ML App </h2>
-    </div>
-    """
-    
-    st.markdown(html_temp, unsafe_allow_html=True)
-    TamCabeca = st.text_input("Qual o volume da cabeça (cm³)?")
+ 
+    TamCabeca = st.text_input("test")
 
 if __name__ == '__main__':
     main()

@@ -4,8 +4,8 @@ scikit_learn== 1.1.1
 seaborn==0.11.2
 opencv-python-headless==4.5.4.60
 numpy==1.21.6
-tensorflow==2.8.2
 pandas==1.3.5
-keras==2.8.0rc0
 streamlit==1.2.0
 protobuf==3.14.0
+Keras==2.4.3
+tensorflow==2.3.1

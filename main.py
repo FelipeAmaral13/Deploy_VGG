@@ -74,6 +74,7 @@ def main():
     st.markdown(html_temp, unsafe_allow_html=True)
     TamCabeca = st.text_input("Qual o volume da cabeça (cm³)?")
     st.text(os.listdir(r'/app/deploy_vgg/Model'))
+    os.path.abspath(r'/app/deploy_vgg/Model/myfile.h5')
 
 if __name__ == '__main__':
     main()

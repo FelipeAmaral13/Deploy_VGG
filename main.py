@@ -22,7 +22,9 @@ from keras.preprocessing.image import ImageDataGenerator
 
 st.set_option('deprecation.showPyplotGlobalUse', False)
 
-os.makedirs(os.path.join(os.getcwd(), 'Model'))
+path_folder = r'/app/deploy_vgg/Model'
+
+os.makedirs(path_folder)
 
 
 def main():

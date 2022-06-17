@@ -57,13 +57,12 @@ def save_response_content(response, destination):
                 f.write(chunk)
 
 #https://drive.google.com/file/d/19Rg9Ki7-AD1rCcrbGIjgZc2__5OeaTX2/view?usp=sharing
-                
-file_id = '19Rg9Ki7-AD1rCcrbGIjgZc2__5OeaTX2'
-destination = '/app/deploy_vgg/Model/myfile.h5'
-download_file_from_google_drive(file_id, destination)
 
 def main():
     
+    file_id = '19Rg9Ki7-AD1rCcrbGIjgZc2__5OeaTX2'
+    destination = '/app/deploy_vgg/Model/myfile.h5'
+    download_file_from_google_drive(file_id, destination)
     
     html_temp = """
     <div style="background-color:#025246 ;padding:10px">

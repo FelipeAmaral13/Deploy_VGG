@@ -24,7 +24,7 @@ st.set_option('deprecation.showPyplotGlobalUse', False)
 
 path_folder = r'/app/deploy_vgg/Model'
 
-os.makedirs(path_folder)
+os.makedir(path_folder)
 
 
 def main():

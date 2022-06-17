@@ -57,7 +57,7 @@ def save_response_content(response, destination):
             if chunk: # filter out keep-alive new chunks
                 f.write(chunk)
 
-https://drive.google.com/file/d/19Rg9Ki7-AD1rCcrbGIjgZc2__5OeaTX2/view?usp=sharing
+#https://drive.google.com/file/d/19Rg9Ki7-AD1rCcrbGIjgZc2__5OeaTX2/view?usp=sharing
                 
 file_id = '19Rg9Ki7-AD1rCcrbGIjgZc2__5OeaTX2
 destination = '/app/deploy_vgg/Model/myfile.h5'

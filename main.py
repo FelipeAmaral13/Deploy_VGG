@@ -81,6 +81,7 @@ def main():
     relative = Path('/app/deploy_vgg/Model/myfile.h5')
     absolute = relative.absolute()  # absolute is a Path object
     st.text(absolute)
+    from tensorflow import keras
     model = keras.models.load_model(absolute)
 
 

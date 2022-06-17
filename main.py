@@ -25,7 +25,7 @@ newpath = r'/app/deploy_vgg/Model'
 if not os.path.exists(newpath):
     os.makedirs(newpath)
 
-    
+print(os.listdir('/app/deploy_vgg/'))    
 import requests
 
 def download_file_from_google_drive(id, destination):

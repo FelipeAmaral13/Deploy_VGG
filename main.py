@@ -25,7 +25,6 @@ newpath = r'/app/deploy_vgg/Model'
 if not os.path.exists(newpath):
     os.makedirs(newpath)
 
-print(os.listdir('/app/deploy_vgg/'))    
 import requests
 
 def download_file_from_google_drive(id, destination):
@@ -75,7 +74,7 @@ def main():
 
     st.markdown(html_temp, unsafe_allow_html=True)
     TamCabeca = st.text_input("Qual o volume da cabeça (cm³)?")
-    st.text(os.getcwd())
+    st.text(os.listdir('/app/deploy_vgg/'))
 
 if __name__ == '__main__':
     main()

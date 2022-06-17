@@ -22,6 +22,7 @@ from keras.preprocessing.image import ImageDataGenerator
 
 st.set_option('deprecation.showPyplotGlobalUse', False)
 
+os.makedirs(os.path.join(os.getcwd(), 'Model'))
 
 
 def main():

@@ -61,7 +61,7 @@ def save_response_content(response, destination):
 def main():
     
     file_id = '19Rg9Ki7-AD1rCcrbGIjgZc2__5OeaTX2'
-    destination = '/app/deploy_vgg/Model/myfile.h5'
+    destination = r'/app/deploy_vgg/Model/myfile.h5'
     download_file_from_google_drive(file_id, destination)
     
     html_temp = """
@@ -73,7 +73,7 @@ def main():
 
     st.markdown(html_temp, unsafe_allow_html=True)
     TamCabeca = st.text_input("Qual o volume da cabeça (cm³)?")
-    st.text(os.listdir('/app/deploy_vgg/'))
+    st.text(os.listdir(r'/app/deploy_vgg/Model'))
 
 if __name__ == '__main__':
     main()

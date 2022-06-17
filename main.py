@@ -59,7 +59,7 @@ def save_response_content(response, destination):
 
 #https://drive.google.com/file/d/19Rg9Ki7-AD1rCcrbGIjgZc2__5OeaTX2/view?usp=sharing
                 
-file_id = '19Rg9Ki7-AD1rCcrbGIjgZc2__5OeaTX2
+file_id = '19Rg9Ki7-AD1rCcrbGIjgZc2__5OeaTX2'
 destination = '/app/deploy_vgg/Model/myfile.h5'
 download_file_from_google_drive(file_id, destination)
 

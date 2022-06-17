@@ -80,7 +80,7 @@ def main():
 
     relative = Path('/app/deploy_vgg/Model/myfile.h5')
     absolute = relative.absolute()  # absolute is a Path object
-    st.text(len(absolute))
+    st.text(absolute.size)
 
 if __name__ == '__main__':
     main()

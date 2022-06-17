@@ -74,13 +74,15 @@ def main():
 
     st.markdown(html_temp, unsafe_allow_html=True)
     TamCabeca = st.text_input("Qual o volume da cabeça (cm³)?")
-    st.text(os.listdir(r'/app/deploy_vgg/Model'))
+    #st.text(os.listdir(r'/app/deploy_vgg/Model'))
     #os.path.abspath(r'/app/deploy_vgg/Model/myfile.h5')
     
 
     relative = Path('/app/deploy_vgg/Model/myfile.h5')
     absolute = relative.absolute()  # absolute is a Path object
     st.text(absolute)
+    model = keras.models.load_model(absolute)
+
 
 if __name__ == '__main__':
     main()

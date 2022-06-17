@@ -26,6 +26,7 @@ if not os.path.exists(newpath):
     os.makedirs(newpath)
 
 import requests
+from pathlib import Path
 
 def download_file_from_google_drive(id, destination):
     URL = "https://docs.google.com/uc?export=download"
@@ -74,7 +75,12 @@ def main():
     st.markdown(html_temp, unsafe_allow_html=True)
     TamCabeca = st.text_input("Qual o volume da cabeça (cm³)?")
     st.text(os.listdir(r'/app/deploy_vgg/Model'))
-    os.path.abspath(r'/app/deploy_vgg/Model/myfile.h5')
+    #os.path.abspath(r'/app/deploy_vgg/Model/myfile.h5')
+    
+
+    relative = Path('/app/deploy_vgg/Model/myfile.h5')
+    absolute = relative.absolute()  # absolute is a Path object
+    st.text(len(absolute))
 
 if __name__ == '__main__':
     main()

@@ -24,8 +24,10 @@ st.set_option('deprecation.showPyplotGlobalUse', False)
 newpath = r'/app/deploy_vgg/Model' 
 if not os.path.exists(newpath):
     os.makedirs(newpath)
+
+os.replace("/app/deploy_vgg/modelo_VGG19_custom.h5", "/app/deploy_vgg/Model/modelo_VGG19_custom.h5")
     
-#os.listdir(r'/app/deploy_vgg/')
+
 
 
 def main():
@@ -40,7 +42,7 @@ def main():
 
     st.markdown(html_temp, unsafe_allow_html=True)
     TamCabeca = st.text_input("Qual o volume da cabeça (cm³)?")
-    st.text(os.listdir(r'/app/deploy_vgg/')[-1])
+    st.text(os.listdir(r'/app/deploy_vgg/Model')[-1])
     #os.path.abspath(r'/app/deploy_vgg/Model/myfile.h5')
     
 

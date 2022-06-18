@@ -26,7 +26,7 @@ newpath = r'/app/deploy_vgg/Model'
 if not os.path.exists(newpath):
     os.makedirs(newpath)
 
-os.replace("/app/deploy_vgg/modelo_VGG19_custom.h5", "/app/deploy_vgg/Model/modelo_VGG19_custom.h5")
+os.rename("/app/deploy_vgg/modelo_VGG19_custom.h5", "/app/deploy_vgg/Model/modelo_VGG19_custom.h5")
     
 
 

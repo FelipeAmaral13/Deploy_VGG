@@ -54,6 +54,7 @@ def main():
         st.image(img, width=250)
         opencvImage = cv2.cvtColor(np.array(img), cv2.COLOR_RGB2BGR) 
         st.write(type(opencvImage))
+        st.image(opencvImage, width=250)
         
         
     #st.text(os.listdir(r'/app/deploy_vgg/Model'))

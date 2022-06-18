@@ -54,7 +54,9 @@ def main():
         st.image(img, width=250)
         opencvImage = cv2.cvtColor(np.array(img), cv2.COLOR_RGB2BGR) 
         st.write(type(opencvImage))
-        img_test = cv2.imread(opencvImage, cv2.IMREAD_COLOR)
+        #img_test = cv2.imread(opencvImage, cv2.IMREAD_COLOR)
+        resized_image_test= cv2.resize(opencvImage, (224, 224))
+        
         
         
     #st.text(os.listdir(r'/app/deploy_vgg/Model'))

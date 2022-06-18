@@ -27,7 +27,7 @@ if not os.path.exists(newpath):
     os.makedirs(newpath)
 try :
     os.rename("/app/deploy_vgg/modelo_VGG19_custom.h5", "/app/deploy_vgg/Model/modelo_VGG19_custom.h5")
-Except FileNotFoundError:
+except FileNotFoundError:
     continue
 
 

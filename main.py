@@ -51,9 +51,10 @@ def main():
         file_details = {"FileName":uploaded_file.name,"FileType":uploaded_file.type,"FileSize":uploaded_file.size}
         st.write(file_details)
         img = Image.open(uploaded_file)
-        st.image(img, width=250)
+        #st.image(img, width=250)
         file_bytes = np.array(bytearray(uploaded_file.read()), dtype=np.uint8)
         img_test = cv2.imdecode(file_bytes, 1)
+        st.image(opencv_image, channels="BGR")
         
     #st.text(os.listdir(r'/app/deploy_vgg/Model'))
     #os.path.abspath(r'/app/deploy_vgg/Model/myfile.h5')

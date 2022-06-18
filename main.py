@@ -25,45 +25,9 @@ newpath = r'/app/deploy_vgg/Model'
 if not os.path.exists(newpath):
     os.makedirs(newpath)
 
-import requests
-from pathlib import Path
-
-def download_file_from_google_drive(id, destination):
-    URL = "https://docs.google.com/uc?export=download"
-
-    session = requests.Session()
-
-    response = session.get(URL, params = { 'id' : id }, stream = True)
-    token = get_confirm_token(response)
-
-    if token:
-        params = { 'id' : id, 'confirm' : token }
-        response = session.get(URL, params = params, stream = True)
-
-    save_response_content(response, destination)    
-
-def get_confirm_token(response):
-    for key, value in response.cookies.items():
-        if key.startswith('download_warning'):
-            return value
-
-    return None
-
-def save_response_content(response, destination):
-    CHUNK_SIZE = 32768
-
-    with open(destination, "wb") as f:
-        for chunk in response.iter_content(CHUNK_SIZE):
-            if chunk: # filter out keep-alive new chunks
-                f.write(chunk)
-
-#https://drive.google.com/file/d/19Rg9Ki7-AD1rCcrbGIjgZc2__5OeaTX2/view?usp=sharing
 
 def main():
     
-    file_id = '19Rg9Ki7-AD1rCcrbGIjgZc2__5OeaTX2'
-    destination = r'/app/deploy_vgg/Model/myfile.h5'
-    download_file_from_google_drive(file_id, destination)
     
     html_temp = """
     <div style="background-color:#025246 ;padding:10px">
@@ -74,15 +38,15 @@ def main():
 
     st.markdown(html_temp, unsafe_allow_html=True)
     TamCabeca = st.text_input("Qual o volume da cabeça (cm³)?")
-    #st.text(os.listdir(r'/app/deploy_vgg/Model'))
+    st.text(os.listdir(r'/app/deploy_vgg/'))
     #os.path.abspath(r'/app/deploy_vgg/Model/myfile.h5')
     
 
-    relative = Path('/app/deploy_vgg/Model/myfile.h5')
-    absolute = relative.absolute()  # absolute is a Path object
-    st.text(absolute)
-    from tensorflow import keras
-    model = keras.models.load_model(absolute)
+    #relative = Path('/app/deploy_vgg/Model/myfile.h5')
+    #absolute = relative.absolute()  # absolute is a Path object
+    #st.text(absolute)
+    #from tensorflow import keras
+    #model = keras.models.load_model(absolute)
 
 
 if __name__ == '__main__':

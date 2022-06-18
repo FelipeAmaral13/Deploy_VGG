@@ -56,6 +56,8 @@ def main():
         st.write(type(opencvImage))
         #img_test = cv2.imread(opencvImage, cv2.IMREAD_COLOR)
         resized_image_test= cv2.resize(opencvImage, (224, 224))
+        x = np.array(resized_image_test) / 255
+        x = x.reshape(-1, 224, 224, 3)
         
         
         

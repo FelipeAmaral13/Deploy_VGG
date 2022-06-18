@@ -57,9 +57,9 @@ def main():
     #absolute = relative.absolute()  # absolute is a Path object
     #st.text(absolute)
     #from tensorflow import keras
-    model = keras.models.load_model('/app/deploy_vgg/Model/modelo_VGG19_custom.h5')
-    img_test = cv2.imread(uploaded_file, cv2.IMREAD_COLOR)
-    st.write(img_test)
+        model = keras.models.load_model('/app/deploy_vgg/Model/modelo_VGG19_custom.h5')
+        img_test = cv2.imread(uploaded_file, cv2.IMREAD_COLOR)
+        st.write(img_test)
 
 
 if __name__ == '__main__':

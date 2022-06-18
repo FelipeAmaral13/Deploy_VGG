@@ -48,7 +48,9 @@ def main():
     if uploaded_file is not None:
         file_details = {"FileName":uploaded_file.name,"FileType":uploaded_file.type,"FileSize":uploaded_file.size}
         st.write(file_details)
-        st.image(Image.open(uploaded_file),width=250)
+        img = Image.open(uploaded_file)
+        st.image(img, width=250)
+        img_save = img.save("img.jpg")
     #st.text(os.listdir(r'/app/deploy_vgg/Model'))
     #os.path.abspath(r'/app/deploy_vgg/Model/myfile.h5')
     
@@ -58,7 +60,7 @@ def main():
     #st.text(absolute)
     #from tensorflow import keras
         model = keras.models.load_model('/app/deploy_vgg/Model/modelo_VGG19_custom.h5')
-        img_test = cv2.imread(uploaded_file, cv2.IMREAD_COLOR)
+        img_test = cv2.imread("img.jpg", cv2.IMREAD_COLOR)
         st.write(img_test)
 
 

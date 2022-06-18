@@ -48,8 +48,20 @@ def main():
         x = np.array(resized_image_test) / 255
         x = x.reshape(-1, 224, 224, 3)
         real_predictions = model.predict(x)
-        st.write(np.argmax(real_predictions))
+        pred_grape = np.argmax(real_predictions)
         
+        if pred_grape == 0:
+            st.write("AK")
+        elif pred_grape == 1:
+            st.write("Ala Idris")
+        elif pred_grape == 2:
+            st.write("Buzgulu")
+        elif pred_grape == 3:
+            st.write("Dimnit")
+        elif pred_grape == 4:
+            st.write("Nazli")
+        else:
+            st.write("Error")
 
 
 if __name__ == '__main__':

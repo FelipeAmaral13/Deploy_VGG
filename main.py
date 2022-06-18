@@ -52,6 +52,7 @@ def main():
         st.write(file_details)
         img = Image.open(uploaded_file)
         st.image(img, width=250)
+        st.write(type(img))
         
         
     #st.text(os.listdir(r'/app/deploy_vgg/Model'))

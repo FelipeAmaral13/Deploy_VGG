@@ -18,6 +18,7 @@ from keras.applications.vgg19 import VGG19
 from keras.models import Sequential, Model
 from keras.layers import Dense, Conv2D , MaxPool2D , Flatten , Dropout , MaxPooling2D
 from keras.preprocessing.image import ImageDataGenerator
+from tensorflow import keras
 
 st.set_option('deprecation.showPyplotGlobalUse', False)
 
@@ -50,7 +51,7 @@ def main():
     #absolute = relative.absolute()  # absolute is a Path object
     #st.text(absolute)
     #from tensorflow import keras
-    #model = keras.models.load_model(absolute)
+    model = keras.models.load_model('/app/deploy_vgg/Model/modelo_VGG19_custom.h5')
 
 
 if __name__ == '__main__':

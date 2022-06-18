@@ -52,7 +52,7 @@ def main():
         st.write(file_details)
         img = Image.open(uploaded_file)
         st.image(img, width=250)
-        opencvImage = cv2.cvtColor(numpy.array(img), cv2.COLOR_RGB2BGR) 
+        opencvImage = cv2.cvtColor(np.array(img), cv2.COLOR_RGB2BGR) 
         st.write(type(opencvImage))
         
         

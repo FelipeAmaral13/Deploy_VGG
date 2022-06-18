@@ -52,8 +52,8 @@ def main():
         st.write(file_details)
         img = Image.open(uploaded_file)
         st.image(img, width=250)
-        original_image = np.array(img)
-        img_test = cv2.imread(original_image, cv2.IMREAD_COLOR)
+        file_bytes = np.array(bytearray(uploaded_file.read()), dtype=np.uint8)
+        img_test = cv2.imdecode(file_bytes, 1)
         
     #st.text(os.listdir(r'/app/deploy_vgg/Model'))
     #os.path.abspath(r'/app/deploy_vgg/Model/myfile.h5')

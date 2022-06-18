@@ -53,6 +53,7 @@ def main():
         x = np.array(resized_image_test) / 255
         x = x.reshape(-1, 224, 224, 3)
         real_predictions = model.predict(x)
+        st.write(real_predictions)
         pred_grape = np.argmax(real_predictions)
         
         st.subheader("Classificação: ")

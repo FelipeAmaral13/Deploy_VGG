@@ -50,18 +50,20 @@ def main():
         real_predictions = model.predict(x)
         pred_grape = np.argmax(real_predictions)
         
+        st.subheader("Classificação: ")
+        
         if pred_grape == 0:
-            st.write("AK")
+            st.text("AK")
         elif pred_grape == 1:
-            st.write("Ala Idris")
+            st.text("Ala Idris")
         elif pred_grape == 2:
-            st.write("Buzgulu")
+            st.text("Buzgulu")
         elif pred_grape == 3:
-            st.write("Dimnit")
+            st.text("Dimnit")
         elif pred_grape == 4:
-            st.write("Nazli")
+            st.text("Nazli")
         else:
-            st.write("Error")
+            st.text("Error")
 
 
 if __name__ == '__main__':

@@ -50,10 +50,9 @@ def main():
     if uploaded_file is not None:
         file_details = {"FileName":uploaded_file.name,"FileType":uploaded_file.type,"FileSize":uploaded_file.size}
         st.write(file_details)
-        img = Image.open(uploaded_file).convert('RGB') 
+        img = Image.open(uploaded_file)
         st.image(img, width=250)
-        open_cv_image = numpy.array(img) 
-        opencvImage = cv2.cvtColor(numpy.array(pil_image), cv2.COLOR_RGB2BGR) 
+        opencvImage = cv2.cvtColor(numpy.array(img), cv2.COLOR_RGB2BGR) 
         st.write(type(opencvImage))
         
         

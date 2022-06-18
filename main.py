@@ -42,6 +42,8 @@ def main():
     Regressao Linear ML App </h2>
     </div>
     """
+    
+    model = keras.models.load_model('/app/deploy_vgg/Model/modelo_VGG19_custom.h5')
 
     st.markdown(html_temp, unsafe_allow_html=True)
     uploaded_file = st.file_uploader("Upload Files",type=['png','jpeg'])
@@ -50,7 +52,8 @@ def main():
         st.write(file_details)
         img = Image.open(uploaded_file)
         st.image(img, width=250)
-        img_save = img.save("img.jpg")
+        with open(uploaded_file.name,'wb') as f:
+            f.write(uploaded_file.read())
     #st.text(os.listdir(r'/app/deploy_vgg/Model'))
     #os.path.abspath(r'/app/deploy_vgg/Model/myfile.h5')
     
@@ -59,9 +62,9 @@ def main():
     #absolute = relative.absolute()  # absolute is a Path object
     #st.text(absolute)
     #from tensorflow import keras
-        model = keras.models.load_model('/app/deploy_vgg/Model/modelo_VGG19_custom.h5')
-        img_test = cv2.imread("img.jpg", cv2.IMREAD_COLOR)
-        st.write(img_test)
+        
+        #img_test = cv2.imread("img.jpg", cv2.IMREAD_COLOR)
+        #st.write(img_test)
 
 
 if __name__ == '__main__':

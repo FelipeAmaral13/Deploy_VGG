@@ -58,6 +58,7 @@ def main():
         resized_image_test= cv2.resize(opencvImage, (224, 224))
         x = np.array(resized_image_test) / 255
         x = x.reshape(-1, 224, 224, 3)
+        real_predictions = model.predict(x)
         
         
         

@@ -43,8 +43,12 @@ def main():
     """
 
     st.markdown(html_temp, unsafe_allow_html=True)
-    TamCabeca = st.text_input("Qual o volume da cabeça (cm³)?")
-    st.text(os.listdir(r'/app/deploy_vgg/Model'))
+    uploaded_file = st.file_uploader("Upload Files",type=['png','jpeg'])
+    if uploaded_file is not None:
+        file_details = {"FileName":uploaded_file.name,"FileType":uploaded_file.type,"FileSize":uploaded_file.size}
+        st.write(file_details)
+        st.image(load_image(image_file),width=250)
+    #st.text(os.listdir(r'/app/deploy_vgg/Model'))
     #os.path.abspath(r'/app/deploy_vgg/Model/myfile.h5')
     
 

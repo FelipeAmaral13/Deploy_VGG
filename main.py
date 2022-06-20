@@ -1,88 +1,77 @@
 import streamlit as st
 import os
 import numpy as np
+from PIL import Image
 import cv2
-import random
-import pandas as pd
-import seaborn as sns
-from tqdm import tqdm
-from matplotlib import pyplot as plt
-from sklearn.preprocessing import LabelEncoder, LabelBinarizer
-from sklearn.model_selection import train_test_split
-from sklearn.metrics import classification_report,confusion_matrix
 
 import tensorflow
 import keras
-from keras.callbacks import ReduceLROnPlateau, ModelCheckpoint, EarlyStopping, TensorBoard
-from keras.applications.vgg19 import VGG19
-from keras.models import Sequential, Model
-from keras.layers import Dense, Conv2D , MaxPool2D , Flatten , Dropout , MaxPooling2D
-from keras.preprocessing.image import ImageDataGenerator
+from keras.models import Model
+from tensorflow import keras
 
 st.set_option('deprecation.showPyplotGlobalUse', False)
 
-newpath = r'/app/deploy_vgg/Model' 
+# Criacao de uma pasta para colocar o Modelo da VGG19
+newpath = r'/app/deploy_vgg/Model'
 if not os.path.exists(newpath):
     os.makedirs(newpath)
+    os.makedirs('/app/deploy_vgg/Images')
+try :
+    os.rename("/app/deploy_vgg/modelo_VGG19_custom.h5", "/app/deploy_vgg/Model/modelo_VGG19_custom.h5")
+except FileNotFoundError:
+    pass
 
-import requests
-from pathlib import Path
 
-def download_file_from_google_drive(id, destination):
-    URL = "https://docs.google.com/uc?export=download"
-
-    session = requests.Session()
-
-    response = session.get(URL, params = { 'id' : id }, stream = True)
-    token = get_confirm_token(response)
-
-    if token:
-        params = { 'id' : id, 'confirm' : token }
-        response = session.get(URL, params = params, stream = True)
-
-    save_response_content(response, destination)    
-
-def get_confirm_token(response):
-    for key, value in response.cookies.items():
-        if key.startswith('download_warning'):
-            return value
-
-    return None
-
-def save_response_content(response, destination):
-    CHUNK_SIZE = 32768
-
-    with open(destination, "wb") as f:
-        for chunk in response.iter_content(CHUNK_SIZE):
-            if chunk: # filter out keep-alive new chunks
-                f.write(chunk)
-
-#https://drive.google.com/file/d/19Rg9Ki7-AD1rCcrbGIjgZc2__5OeaTX2/view?usp=sharing
 
 def main():
     
-    file_id = '19Rg9Ki7-AD1rCcrbGIjgZc2__5OeaTX2'
-    destination = r'/app/deploy_vgg/Model/myfile.h5'
-    download_file_from_google_drive(file_id, destination)
-    
+    # Cabecalho
     html_temp = """
     <div style="background-color:#025246 ;padding:10px">
     <h2 style="color:white;text-align:center;">
-    Regressao Linear ML App </h2>
+    Grape Leaves Classification
+    </h2>
     </div>
     """
-
     st.markdown(html_temp, unsafe_allow_html=True)
-    TamCabeca = st.text_input("Qual o volume da cabeça (cm³)?")
-    #st.text(os.listdir(r'/app/deploy_vgg/Model'))
-    #os.path.abspath(r'/app/deploy_vgg/Model/myfile.h5')
     
+    # Modelo
+    model = keras.models.load_model('/app/deploy_vgg/Model/modelo_VGG19_custom.h5')
 
-    relative = Path('/app/deploy_vgg/Model/myfile.h5')
-    absolute = relative.absolute()  # absolute is a Path object
-    st.text(absolute)
-    from tensorflow import keras
-    model = keras.models.load_model(absolute)
+    # Upload da imagem
+    uploaded_file = st.file_uploader("Upload Files",type=['png','jpeg'])
+    if uploaded_file is not None:
+        file_details = {"FileName":uploaded_file.name,"FileType":uploaded_file.type,"FileSize":uploaded_file.size}
+        st.write(file_details)
+        img = Image.open(uploaded_file)
+        st.image(img, width=250)
+        
+        # Transformar PIL para cv2
+        opencvImage = cv2.cvtColor(np.array(img), cv2.COLOR_RGB2BGR) 
+
+        # Pre-processamento para o modelo VGG19
+        resized_image_test= cv2.resize(opencvImage, (224, 224))
+        x = np.array(resized_image_test) / 255
+        x = x.reshape(-1, 224, 224, 3)
+        real_predictions = model.predict(x)
+        st.write(real_predictions)
+        pred_grape = np.argmax(real_predictions)
+        
+        st.subheader("Classificação: ")
+        
+        # Classes
+        if pred_grape == 0:
+            st.text("AK")
+        elif pred_grape == 1:
+            st.text("Ala Idris")
+        elif pred_grape == 2:
+            st.text("Buzgulu")
+        elif pred_grape == 3:
+            st.text("Dimnit")
+        elif pred_grape == 4:
+            st.text("Nazli")
+        else:
+            st.text("Error")
 
 
 if __name__ == '__main__':

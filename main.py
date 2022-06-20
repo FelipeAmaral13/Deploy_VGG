@@ -79,11 +79,11 @@ def teste_api():
 
 def main():
     
-     selected_box = st.sidebar.selectbox(
+    selected_box = st.sidebar.selectbox(
     'Escolha as seguintes opções',
     ('Teste API ','API Default', 'Cartoon')
     )
-
+    
     if selected_box == 'Teste API':
         predict() 
     if selected_box == 'API Default':

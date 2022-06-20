@@ -81,7 +81,7 @@ def main():
     
     selected_box = st.sidebar.selectbox(
     'Escolha as seguintes opções',
-    ('Teste API ','API Default', 'Cartoon')
+    ('Teste API ','API Default')
     )
     
     if selected_box == 'Teste API':

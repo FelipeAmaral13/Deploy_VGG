@@ -12,7 +12,7 @@ from tensorflow import keras
 st.set_option('deprecation.showPyplotGlobalUse', False)
 
 # Criacao de uma pasta para colocar o Modelo da VGG19
-newpath =r '/app/deploy_vgg/'
+newpath = r'/app/deploy_vgg/'
 folders = ['Model','Images']
 for folder in folders:
     os.mkdir(os.path.join(newpath,folder))

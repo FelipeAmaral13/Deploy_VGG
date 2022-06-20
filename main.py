@@ -15,15 +15,12 @@ st.set_option('deprecation.showPyplotGlobalUse', False)
 newpath = r'/app/deploy_vgg/Model'
 if not os.path.exists(newpath):
     os.makedirs(newpath)
-    os.makedirs('/app/deploy_vgg/Images')
 try :
     os.rename("/app/deploy_vgg/modelo_VGG19_custom.h5", "/app/deploy_vgg/Model/modelo_VGG19_custom.h5")
 except FileNotFoundError:
     pass
 
-
-
-def main():
+def predict():
     
     # Cabecalho
     html_temp = """
@@ -72,6 +69,24 @@ def main():
             st.text("Nazli")
         else:
             st.text("Error")
+
+
+def teste_api():
+    pass
+            
+            
+
+def main():
+    
+     selected_box = st.sidebar.selectbox(
+    'Escolha as seguintes opções',
+    ('Teste API ','API Default', 'Cartoon')
+    )
+
+    if selected_box == 'Teste API':
+        predict() 
+    if selected_box == 'API Default':
+        teste_api()
 
 
 if __name__ == '__main__':

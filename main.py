@@ -72,6 +72,7 @@ def predict():
 
 
 def teste_api():
+    st.write('Teste')
     pass
             
             

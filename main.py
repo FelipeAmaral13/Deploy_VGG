@@ -12,9 +12,12 @@ from tensorflow import keras
 st.set_option('deprecation.showPyplotGlobalUse', False)
 
 # Criacao de uma pasta para colocar o Modelo da VGG19
-newpath = r'/app/deploy_vgg/Model' 
-if not os.path.exists(newpath):
-    os.makedirs(newpath)
+newpath =r '/app/deploy_vgg/'
+folders = ['Model','Images']
+for folder in folders:
+    os.mkdir(os.path.join(newpath,folder))
+# if not os.path.exists(newpath):
+#     os.makedirs(newpath)
 try :
     os.rename("/app/deploy_vgg/modelo_VGG19_custom.h5", "/app/deploy_vgg/Model/modelo_VGG19_custom.h5")
 except FileNotFoundError:

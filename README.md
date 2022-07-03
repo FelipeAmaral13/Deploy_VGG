@@ -15,4 +15,4 @@ O objetivo desse projeto é fazer um deploy no streamlit usando um modelo já tr
 3. Add a extensão do arquivo considerado grande - `git lfs track “.fileextension”`
 4. Copiar o arquivo para a pasta clonada
 5. Add o arquivo no git - `git add filename.fileextension`
-6. Se o arquivo for maior que 100Mb - `git lfs migrate import --include="*.fileextension"
+6. Se o arquivo for maior que 100Mb - `git lfs migrate import --include="*.fileextension"`

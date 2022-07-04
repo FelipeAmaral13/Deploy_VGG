@@ -15,7 +15,7 @@ st.set_option('deprecation.showPyplotGlobalUse', False)
 newpath = r'/app/deploy_vgg/Model'
 if not os.path.exists(newpath):
     os.makedirs(newpath)
-    os.makedirs('/app/deploy_vgg/Images')
+    # os.makedirs('/app/deploy_vgg/Images')
 try :
     os.rename("/app/deploy_vgg/modelo_VGG19_custom.h5", "/app/deploy_vgg/Model/modelo_VGG19_custom.h5")
 except FileNotFoundError:
